@@ -1,0 +1,16 @@
+service: layers
+
+provider:
+  name: aws
+  runtime: nodejs16.x
+  region: eu-central-1
+  stage: ${opt:stage, 'dev1-eu-de'}
+
+layers:
+  logger:
+    path: dist
+    description: Layer that does JSON logs with metadata
+    compatibleRuntimes:
+      - nodejs12.x
+      - nodejs14.x
+      - nodejs16.x

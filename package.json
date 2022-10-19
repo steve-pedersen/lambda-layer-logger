@@ -1,0 +1,23 @@
+{
+  "name": "lambda-layer-logger",
+  "author": "",
+  "version": "1.0.0",
+  "description": "A simple logging lambda layer that accepts metadata to be included in every log.",
+  "scripts": {
+    "compile": "tsc",
+    "copy": "copyfiles -f ./src/package.json ./dist/nodejs/node_modules/logger",
+    "build": "npm install && npm ci && npm run compile && npm run copy",
+    "deploy": "npm run build && sls deploy",
+    "reset": "rm -rf .build dist node_modules package-lock.json"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "@types/lambda-log": "^2.2.1",
+    "@types/node": "^13.11.1",
+    "copyfiles": "^2.2.0",
+    "typescript": "^3.8.3"
+  },
+  "dependencies": {
+    "lambda-log": "^3.1.0"
+  }
+}
